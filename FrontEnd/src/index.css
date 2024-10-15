@@ -1,0 +1,894 @@
+:root {
+    color-scheme: ligth dark;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif,
+        monospace;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: light-dark(#fff, #111827);
+
+}
+
+.navbar {
+    display: flex;
+    height: 80px;
+    width: auto;
+    justify-content: center;
+    position: fixed;
+
+    top: 0;
+    /* Alinea el navbar en la parte inferior */
+    left: -400px;
+    /* Alinea el navbar al lado izquierdo */
+    width: 100%;
+    /* Ancho completo de la ventana */
+    padding: 10px;
+    /* Espaciado interno */
+    z-index: 1000;
+    /* Asegúrate de que esté por encima de otros elementos */
+    
+}
+
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 40px;
+    background-color: #171717;
+    border: solid 1px #00bf63;
+    margin: auto;
+    border-radius: 40px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: all ease 400ms;
+}
+.navbar a:hover{
+    margin: 10px;
+    padding: 20px;
+    color: #00bf63;
+    filter: drop-shadow(1px 1px 10px #00bf63);
+}
+.navbar ul li {
+    list-style: none;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+    margin-top: 100px;
+}
+
+/*- Home */
+.carousel {
+    padding: 2rem;
+    overflow: hidden;
+    /* Oculta el desbordamiento */
+    display: flex;
+}
+
+.slides {
+    display: flex;
+    /* Para mostrar las slides en línea */
+    transition: transform 0.5s ease;
+    /* Transición suave */
+}
+
+.slide {
+    min-width: 100%;
+    /* Cada slide ocupa el 100% del ancho del contenedor */
+    box-sizing: border-box;
+    /* Incluye padding en el ancho total */
+    padding: 20px;
+    /* Espaciado interno */
+    text-wrap: balance;
+    text-align: center;
+    font-size: larger;
+    height: auto;
+}
+
+.btn {
+    margin: auto;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    /* Fondo semi-transparente */
+    border: none;
+    /* Sin borde */
+    cursor: pointer;
+    /* Cambia el cursor al pasar por encima */
+    padding: 10px;
+    /* Espaciado interno */
+    font-size: 20px;
+    /* Tamaño del texto */
+    z-index: 10;
+    /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.next,
+.prev {
+    background-color: #3682f4;
+}
+
+/*- END Home */
+
+/*- Forms */
+.content-form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+}
+
+/* *CHECK-BUTTON */
+/* From Uiverse.io by devestter */
+.toggle-button-cover {
+    display: table-cell;
+    position: relative;
+    width: 100%;
+    height: 80px;
+    box-sizing: border-box;
+}
+
+.button-cover {
+    height: 100px;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 0 10px 20px -8px #c5d6d6;
+    border-radius: 4px;
+}
+
+.button-cover:before {
+    counter-increment: button-counter;
+    content: counter(button-counter);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #d7e3e3;
+    font-size: 12px;
+    line-height: 1;
+    padding: 5px;
+}
+
+.button-cover,
+.knobs,
+.layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.button {
+    position: relative;
+    top: 50%;
+    width: 160px;
+    height: 38px;
+    margin: -20px auto 0 auto;
+    overflow: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.knobs {
+    z-index: 2;
+}
+
+.layer {
+    width: 100%;
+    background-color: #524949;
+    transition: 1s ease all;
+    z-index: 1;
+}
+
+.button.r,
+.button.r .layer {
+    border-radius: 12px;
+}
+
+#button-3 .knobs:before {
+    content: "Cargar";
+    position: absolute;
+    top: 4px;
+    left: 7px;
+    width: 50px;
+    height: 11px;
+    color: rgb(22, 21, 21);
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    background-color: rgb(240, 235, 233);
+    border-radius: 30%;
+    transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#button-3 .checkbox:active+.knobs:before {
+    width: 36px;
+    border-radius: 2px;
+}
+
+#button-3 .checkbox:checked:active+.knobs:before {
+    margin-left: -26px;
+}
+
+#button-3 .checkbox:checked+.knobs:before {
+    content: "Actualizar";
+    left: 95px;
+    background-color: #3676b1;
+    color: white;
+}
+
+#button-3 .checkbox:checked~.layer {
+    background-color: #524949;
+}
+
+/* *END CHECK-BUTTON */
+
+/* From Uiverse.io by DavidTM96 */
+.form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    font-family: inherit;
+    gap: 10px;
+    padding-inline: 2em;
+    padding-bottom: 0.4em;
+    background-color: #171717;
+
+    border-radius: 20px;
+}
+
+.form-heading {
+    text-align: center;
+    margin: 2em;
+    color: #64ffda;
+    font-size: 1.2em;
+    background-color: transparent;
+    align-self: center;
+}
+
+.form-field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    border-radius: 10px;
+    padding: 0.6em;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #171717;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.input-field {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #ccd6f6;
+    padding-inline: 1em;
+}
+
+.sendMessage-btn {
+    cursor: pointer;
+    margin-bottom: 3em;
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #64ffda;
+    font-weight: bold;
+    outline: 1px solid #64ffda;
+    transition: all ease-in-out 0.3s;
+}
+
+.sendMessage-btn:hover {
+    transition: all ease-in-out 0.3s;
+    background-color: #64ffda;
+    color: #000;
+    cursor: pointer;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.form-card1 {
+    background-image: linear-gradient(163deg, #64ffda 0%, #64ffda 100%);
+    border-radius: 22px;
+    transition: all 0.3s;
+}
+
+.form-card1:hover {
+    box-shadow: 0px 0px 30px 1px rgba(100, 255, 218, 0.3);
+}
+
+.form-card2 {
+    border-radius: 0;
+    transition: all 0.2s;
+}
+
+.form-card2:hover {
+    transform: scale(0.98);
+    border-radius: 20px;
+}
+
+/*- END Forms */
+
+/*- Animations load */
+
+/* From Uiverse.io by VashonG */
+.macbook {
+    width: 150px;
+    height: 96px;
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    margin: -85px 0 0 -78px;
+    perspective: 500px;
+}
+
+.shadow {
+    position: absolute;
+    width: 60px;
+    height: 0px;
+    left: 40px;
+    top: 160px;
+    transform: rotateX(80deg) rotateY(0deg) rotateZ(0deg);
+    box-shadow: 0 0 60px 40px rgba(0, 0, 0, 0.3);
+    animation: shadow infinite 7s ease;
+}
+
+.inner {
+    z-index: 20;
+    position: absolute;
+    width: 150px;
+    height: 96px;
+    left: 0;
+    top: 0;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
+    animation: rotate infinite 7s ease;
+}
+
+.screen {
+    width: 150px;
+    height: 96px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 7px;
+    background: #ddd;
+    transform-style: preserve-3d;
+    transform-origin: 50% 93px;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    animation: lid-screen infinite 7s ease;
+    background-image: linear-gradient(45deg,
+            rgba(0, 0, 0, 0.34) 0%,
+            rgba(0, 0, 0, 0) 100%);
+    background-position: left bottom;
+    background-size: 300px 300px;
+    box-shadow: inset 0 3px 7px rgba(255, 255, 255, 0.5);
+}
+
+.screen .logo {
+    position: absolute;
+    width: 20px;
+    height: 24px;
+    left: 50%;
+    top: 50%;
+    margin: -12px 0 0 -10px;
+    transform: rotateY(180deg) translateZ(0.1px);
+}
+
+.screen .face-one {
+    width: 150px;
+    height: 96px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 7px;
+    background: #d3d3d3;
+    transform: translateZ(2px);
+    background-image: linear-gradient(45deg,
+            rgba(0, 0, 0, 0.24) 0%,
+            rgba(0, 0, 0, 0) 100%);
+}
+
+.screen .face-one .camera {
+    width: 3px;
+    height: 3px;
+    border-radius: 100%;
+    background: #000;
+    position: absolute;
+    left: 50%;
+    top: 4px;
+    margin-left: -1.5px;
+}
+
+.screen .face-one .display {
+    width: 130px;
+    height: 74px;
+    margin: 10px;
+    background-color: #000;
+    background-size: 100% 100%;
+    border-radius: 1px;
+    position: relative;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 1);
+}
+
+.screen .face-one .display .shade {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 130px;
+    height: 74px;
+    background: linear-gradient(-135deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.1) 47%,
+            rgba(255, 255, 255, 0) 48%);
+    animation: screen-shade infinite 7s ease;
+    background-size: 300px 200px;
+    background-position: 0px 0px;
+}
+
+.screen .face-one span {
+    position: absolute;
+    top: 85px;
+    left: 57px;
+    font-size: 6px;
+    color: #666;
+}
+
+.macbody {
+    width: 150px;
+    height: 96px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 7px;
+    background: #cbcbcb;
+    transform-style: preserve-3d;
+    transform-origin: 50% bottom;
+    transform: rotateX(-90deg);
+    animation: lid-macbody infinite 7s ease;
+    background-image: linear-gradient(45deg,
+            rgba(0, 0, 0, 0.24) 0%,
+            rgba(0, 0, 0, 0) 100%);
+}
+
+.macbody .face-one {
+    width: 150px;
+    height: 96px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 7px;
+    transform-style: preserve-3d;
+    background: #dfdfdf;
+    animation: lid-keyboard-area infinite 7s ease;
+    transform: translateZ(-2px);
+    background-image: linear-gradient(30deg,
+            rgba(0, 0, 0, 0.24) 0%,
+            rgba(0, 0, 0, 0) 100%);
+}
+
+.macbody .touchpad {
+    width: 40px;
+    height: 31px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 4px;
+    margin: -44px 0 0 -18px;
+    background: #cdcdcd;
+    background-image: linear-gradient(30deg,
+            rgba(0, 0, 0, 0.24) 0%,
+            rgba(0, 0, 0, 0) 100%);
+    box-shadow: inset 0 0 3px #888;
+}
+
+.macbody .keyboard {
+    width: 130px;
+    height: 45px;
+    position: absolute;
+    left: 7px;
+    top: 41px;
+    border-radius: 4px;
+    transform-style: preserve-3d;
+    background: #cdcdcd;
+    background-image: linear-gradient(30deg,
+            rgba(0, 0, 0, 0.24) 0%,
+            rgba(0, 0, 0, 0) 100%);
+    box-shadow: inset 0 0 3px #777;
+    padding: 0 0 0 2px;
+}
+
+.keyboard .key {
+    width: 6px;
+    height: 6px;
+    background: #444;
+    float: left;
+    margin: 1px;
+    transform: translateZ(-2px);
+    border-radius: 2px;
+    box-shadow: 0 -2px 0 #222;
+    animation: keys infinite 7s ease;
+}
+
+.key.space {
+    width: 45px;
+}
+
+.key.f {
+    height: 3px;
+}
+
+.macbody .pad {
+    width: 5px;
+    height: 5px;
+    background: #333;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.pad.one {
+    left: 20px;
+    top: 20px;
+}
+
+.pad.two {
+    right: 20px;
+    top: 20px;
+}
+
+.pad.three {
+    right: 20px;
+    bottom: 20px;
+}
+
+.pad.four {
+    left: 20px;
+    bottom: 20px;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    5% {
+        transform: rotateX(-20deg) rotateY(-20deg) rotateZ(0deg);
+    }
+
+    20% {
+        transform: rotateX(30deg) rotateY(200deg) rotateZ(0deg);
+    }
+
+    25% {
+        transform: rotateX(-60deg) rotateY(150deg) rotateZ(0deg);
+    }
+
+    60% {
+        transform: rotateX(-20deg) rotateY(130deg) rotateZ(0deg);
+    }
+
+    65% {
+        transform: rotateX(-20deg) rotateY(120deg) rotateZ(0deg);
+    }
+
+    80% {
+        transform: rotateX(-20deg) rotateY(375deg) rotateZ(0deg);
+    }
+
+    85% {
+        transform: rotateX(-20deg) rotateY(357deg) rotateZ(0deg);
+    }
+
+    87% {
+        transform: rotateX(-20deg) rotateY(360deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateX(-20deg) rotateY(360deg) rotateZ(0deg);
+    }
+}
+
+@keyframes lid-screen {
+    0% {
+        transform: rotateX(0deg);
+        background-position: left bottom;
+    }
+
+    5% {
+        transform: rotateX(50deg);
+        background-position: left bottom;
+    }
+
+    20% {
+        transform: rotateX(-90deg);
+        background-position: -150px top;
+    }
+
+    25% {
+        transform: rotateX(15deg);
+        background-position: left bottom;
+    }
+
+    30% {
+        transform: rotateX(-5deg);
+        background-position: right top;
+    }
+
+    38% {
+        transform: rotateX(5deg);
+        background-position: right top;
+    }
+
+    48% {
+        transform: rotateX(0deg);
+        background-position: right top;
+    }
+
+    90% {
+        transform: rotateX(0deg);
+        background-position: right top;
+    }
+
+    100% {
+        transform: rotateX(0deg);
+        background-position: right center;
+    }
+}
+
+@keyframes lid-macbody {
+    0% {
+        transform: rotateX(-90deg);
+    }
+
+    50% {
+        transform: rotateX(-90deg);
+    }
+
+    100% {
+        transform: rotateX(-90deg);
+    }
+}
+
+@keyframes lid-keyboard-area {
+    0% {
+        background-color: #dfdfdf;
+    }
+
+    50% {
+        background-color: #bbb;
+    }
+
+    100% {
+        background-color: #dfdfdf;
+    }
+}
+
+@keyframes screen-shade {
+    0% {
+        background-position: -20px 0px;
+    }
+
+    5% {
+        background-position: -40px 0px;
+    }
+
+    20% {
+        background-position: 200px 0;
+    }
+
+    50% {
+        background-position: -200px 0;
+    }
+
+    80% {
+        background-position: 0px 0px;
+    }
+
+    85% {
+        background-position: -30px 0;
+    }
+
+    90% {
+        background-position: -20px 0;
+    }
+
+    100% {
+        background-position: -20px 0px;
+    }
+}
+
+@keyframes keys {
+    0% {
+        box-shadow: 0 -2px 0 #222;
+    }
+
+    5% {
+        box-shadow: 1 -1px 0 #222;
+    }
+
+    20% {
+        box-shadow: -1px 1px 0 #222;
+    }
+
+    25% {
+        box-shadow: -1px 1px 0 #222;
+    }
+
+    60% {
+        box-shadow: -1px 1px 0 #222;
+    }
+
+    80% {
+        box-shadow: 0 -2px 0 #222;
+    }
+
+    85% {
+        box-shadow: 0 -2px 0 #222;
+    }
+
+    87% {
+        box-shadow: 0 -2px 0 #222;
+    }
+
+    100% {
+        box-shadow: 0 -2px 0 #222;
+    }
+}
+
+@keyframes shadow {
+    0% {
+        transform: rotateX(80deg) rotateY(0deg) rotateZ(0deg);
+        box-shadow: 0 0 60px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    5% {
+        transform: rotateX(80deg) rotateY(10deg) rotateZ(0deg);
+        box-shadow: 0 0 60px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    20% {
+        transform: rotateX(30deg) rotateY(-20deg) rotateZ(-20deg);
+        box-shadow: 0 0 50px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    25% {
+        transform: rotateX(80deg) rotateY(-20deg) rotateZ(50deg);
+        box-shadow: 0 0 35px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    60% {
+        transform: rotateX(80deg) rotateY(0deg) rotateZ(-50deg) translateX(30px);
+        box-shadow: 0 0 60px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    100% {
+        box-shadow: 0 0 60px 40px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/*- END animtions load */
+
+
+/*- Users List */
+.list-users {
+    width: 600px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: auto;
+    overflow: auto;
+    left: 40%;
+    top: 5%;
+    scrollbar-width: none;
+    background-color: #0202026f;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 12px 8px 22px #002f18;
+}
+.list-users ul{
+    max-width: 100%;
+}
+
+.list-users li {
+    list-style: url('../public/http-2-svgrepo-com.svg');
+    
+}
+
+/* From Uiverse.io by devkatyall */
+.cssbuttons-io {
+    margin: 20px;
+    max-width: 180px;
+    position: relative;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 17px;
+    border-radius: 0.8em;
+    cursor: pointer;
+    border: none;
+    background: linear-gradient(to right, #00bf63, #5ce1e6);
+    color: ghostwhite;
+    overflow: hidden;
+}
+
+.cssbuttons-io svg {
+    width: 1.2em;
+    height: 1.2em;
+    margin-left: 0.7em;
+    stroke-width: 2px;
+}
+
+.cssbuttons-io span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8em 0.9em 0.8em 1.02em;
+}
+
+.cssbuttons-io::before,
+.cssbuttons-io::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.cssbuttons-io::before {
+    content: "";
+    background: #000;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.cssbuttons-io:hover::before {
+    transform: translate3d(100%, 0, 0);
+}
+
+.cssbuttons-io:active {
+    transform: scale(0.95);
+}
+
+/*- END Users List */
